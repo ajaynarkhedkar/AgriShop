@@ -4,7 +4,9 @@
     {
         public int Id { get; set; }
 
-        public int A { get; set; }
+        public int A
+        {
+            get; set;
 
 
 
