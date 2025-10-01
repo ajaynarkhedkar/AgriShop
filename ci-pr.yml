@@ -1,4 +1,4 @@
-﻿name: CI PR Pipeline - AgroShop
+﻿name: CI PR Pipeline - AgriShop
 
 on:
   pull_request:
