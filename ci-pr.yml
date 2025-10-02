@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         dotnet-version: [8.0]
-        node-version: [20.x]  # Note: Still present but unused since Angular steps are commented out
+        node-version: [20.x]  # Can remove this line since Angular is commented out
 
     steps:
     # 1. Checkout code
@@ -36,7 +36,7 @@ jobs:
       working-directory: ./AgriShop.API
       run: dotnet format --verify-no-changes --fix-whitespace --fix-style warn
 
-    # --------- Node.js / Angular Setup ----------
+    # --------- Node.js / Angular Setup (Commented Out) ----------
     # - name: Setup Node.js
     #   uses: actions/setup-node@v3
     #   with:
@@ -53,15 +53,3 @@ jobs:
     # - name: Build Angular
     #   working-directory: ./ClientApp
     #   run: npm run build -- --prod
-
-    # # --------- PR Comments for Linting (Optional Advanced) ----------
-    # - name: Create PR comments for lint errors
-    #   if: failure()
-    #   uses: marocchino/sticky-pull-request-comment@v2
-    #   with:
-    #     path: ./ClientApp
-    #     message: |
-    #       ⚠️ Linting issues found! Please check C# formatting and Angular lint warnings.
-    #       - Unused parameters
-    #       - Lines > 2 continue (C#)
-    #       - Angular ESLint issues
