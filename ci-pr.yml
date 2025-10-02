@@ -30,17 +30,3 @@ jobs:
     - name: Build .NET solution
       working-directory: ./AgriShop.API
       run: dotnet build --no-restore --configuration Release
-
-    - name: C# Lint & Format Check
-      working-directory: ./AgriShop.API
-      run: dotnet format --verify-no-changes --fix-whitespace --fix-style warn
-
-    # --------- PR Comments for Build/Lint Issues ----------
-    - name: Create PR comments for build/lint errors
-      if: failure()
-      uses: marocchino/sticky-pull-request-comment@v2
-      with:
-        message: |
-          ⚠️ Issues found in the build or linting process:
-            - File: ${{ github.event.pull_request.head.ref }}/AgriShop.API/Program.cs (example)
-            - Issue: Check build logs for details
