@@ -1,3 +1,4 @@
+
 name: CI PR Pipeline - AgriShop
 
 on:
@@ -29,4 +30,5 @@ jobs:
 
     - name: Build .NET solution
       working-directory: ./AgriShop.API
+
       run: dotnet build --no-restore --configuration Release
